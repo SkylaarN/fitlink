@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "828528303456",
+    "project_id": "fitquest-39933",
+    "storage_bucket": "fitquest-39933.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828528303456:android:99e770c1651fd00e739205",
+        "android_client_info": {
+          "package_name": "com.example.fit_quest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgpaeraOiVT3imnu1xRXrB-wvGPsidrQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:828528303456:android:eb80beeb727277ef739205",
+        "android_client_info": {
+          "package_name": "com.example.fitquest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgpaeraOiVT3imnu1xRXrB-wvGPsidrQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

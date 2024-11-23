@@ -1,0 +1,64 @@
+# Flutter specific
+**/build/
+**/.dart_tool/
+**/.packages
+**/.flutter-plugins
+**/.flutter-plugins-dependencies
+**/flutter_export_environment.sh
+**/flutter_export_environment.json
+**/.metadata
+
+# Android specific
+android/.gradle/
+android/app/build/
+android/local.properties
+android/.idea/
+android/gradle.properties
+android/.settings/
+android/captures/
+
+# iOS specific
+ios/Pods/
+ios/Runner.xcworkspace/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/.generated/
+ios/.swiftpm/
+ios/xcuserdata/
+ios/DerivedData/
+
+# macOS specific
+macos/Flutter/ephemeral/
+macos/DerivedData/
+macos/.DS_Store
+macos/xcuserdata/
+
+# Web specific
+web/.dart_tool/
+web/build/
+
+# Windows specific
+windows/Flutter/ephemeral/
+windows/.dart_tool/
+windows/build/
+
+# Linux specific
+linux/Flutter/ephemeral/
+linux/.dart_tool/
+linux/build/
+
+# Coverage
+coverage/
+
+# IntelliJ/IDEA specific
+*.iml
+*.ipr
+*.iws
+.idea/
+
+# VS Code specific
+.vscode/
+
+# Files created by running "flutter test"
+test/output/
