@@ -6,6 +6,7 @@ class CircleProgressBar extends StatelessWidget {
   final double value;
   final IconData icon; // Icon to display in the center
   final VoidCallback? onTap; // Callback for tap events
+  final int noSteps;
 
   const CircleProgressBar({
     super.key,
@@ -13,7 +14,7 @@ class CircleProgressBar extends StatelessWidget {
     required this.label,
     required this.value,
     required this.icon,
-    this.onTap, // Optional callback
+    this.onTap, required this.noSteps, // Optional callback
   });
 
   @override
@@ -57,8 +58,9 @@ class CircleProgressBar extends StatelessWidget {
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Text(
-                    "256",
+                  Text(
+                    // I want this noSteps(int) to be a String now, getting a type cast error
+                    noSteps.toString(),
                     style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.w600,
