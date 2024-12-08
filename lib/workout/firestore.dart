@@ -42,19 +42,22 @@ Future<void> addWorkout(String workout) {
 
 
   // READ: Get workouts for the logged-in user
-Stream<QuerySnapshot> getWorkoutsStream() {
-  final String? userEmail = _authService.getCurrentUser()?.email;
-  if (userEmail == null) {
-    print('Error: No user logged in.');
-    return const Stream.empty(); // Return an empty stream if no user is logged in
-  }
-
-  print('Fetching workouts for userEmail: $userEmail');
-  return workouts
-      .where('userEmail', isEqualTo: userEmail) // Ensure 'userEmail' field matches
-      .orderBy('date', descending: false)
+ Stream<QuerySnapshot> getWorkoutsStream() {
+  return FirebaseFirestore.instance
+      .collection('workouts')
+      .orderBy('distance', descending: true) // Sort by date (newest first)
+      .limit(1) // Fetch only the latest workout
       .snapshots();
 }
+
+
+//  Stream<QuerySnapshot> getWorkoutsStreamLongestDistace() {
+//   return FirebaseFirestore.instance
+//       .collection('workouts')
+//       .orderBy('date', descending: true) // Sort by date (newest first)
+//       .limit(1) // Fetch only the latest workout
+//       .snapshots();
+// }
 
 
 
