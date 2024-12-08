@@ -32,7 +32,7 @@ class WorkoutCard extends StatelessWidget {
           ),
           child: const Padding(
             padding: EdgeInsets.all(20.0),
-            child: Heading(headingText: "testing", headingSize: 18),
+            child: Heading(headingText: "Workout now", headingSize: 25),
           ),
         ),
       ),

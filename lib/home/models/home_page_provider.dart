@@ -5,6 +5,7 @@ import 'package:intl/intl.dart';
 import 'package:pedometer/pedometer.dart';
 
 import '../../auth/models/auth_service.dart';
+import '../../database/database_helper.dart';
 import '../../workout/firestore.dart';
 
 class HomePageProvider with ChangeNotifier {
@@ -31,12 +32,12 @@ class HomePageProvider with ChangeNotifier {
   // Setter for workoutsList and parsedWorkouts
   set workoutsList(List<DocumentSnapshot> newWorkouts) {
     _workoutsList = newWorkouts;
-    notifyListeners(); // Notify widgets that data has been updated
+    notifyListeners(); 
   }
 
   set parsedWorkouts(List<Map<String, dynamic>> newParsedWorkouts) {
     _parsedWorkouts = newParsedWorkouts;
-    notifyListeners(); // Notify widgets that data has been updated
+    notifyListeners(); 
   }
 
   HomePageProvider() {
@@ -100,13 +101,14 @@ class HomePageProvider with ChangeNotifier {
   }
 
   // Add a workout
-  Future<void> addWorkout(String workout) {
+  Future<void> addWorkout(String workout) async {
     final String? userEmail = firestoreService.getCurrentUser()?.email;
     if (userEmail == null) {
       throw Exception('No logged-in user. Cannot add workout.');
     }
 
-    return firestoreService.workouts.add({
+    // Firestore data
+    await firestoreService.workouts.add({
       'userEmail': userEmail,
       'workoutName': workout,
       'caloriesBurned': 100,
@@ -116,6 +118,21 @@ class HomePageProvider with ChangeNotifier {
       'steps': _currentSteps,
       'waterIntake': _waterIntake,
     });
+
+    // SQLite data
+    final workoutData = {
+      'userEmail': userEmail,
+      'workoutName': workout,
+      'caloriesBurned': 100,
+      'date': DateTime.now().toString(),
+      'distance': 1.1,
+      'mood': 'sad',
+      'steps': _currentSteps,
+      'waterIntake': _waterIntake,
+    };
+
+    // Insert into SQLite
+    await DatabaseHelper.instance.insertWorkout(workoutData);
   }
 
   // Method to update water intake in Firestore and notify listeners
@@ -129,7 +146,7 @@ class HomePageProvider with ChangeNotifier {
       });
     }
 
-    notifyListeners(); // Notify listeners for the UI update
+    notifyListeners(); 
   }
 
   // Calculate water level as a percentage
@@ -149,7 +166,7 @@ class HomePageProvider with ChangeNotifier {
     return latestWorkout?.data()?['steps'] ?? 0;
   }
 
-  // Other Firestore related methods
+  
   String getDistance() {
     return (latestWorkout?.data()?['distance'] ?? 0).toString();
   }

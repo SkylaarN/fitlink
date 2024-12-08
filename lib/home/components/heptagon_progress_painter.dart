@@ -4,11 +4,11 @@ import 'dart:math';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HeptagonProgressBar extends StatelessWidget {
-  final double progress; // Progress value between 0.0 and 1.0
-  final double size; // Size of the progress bar
-  final Color backgroundColor; // Background color of the heptagon
-  final Color progressColor; // Color of the progress indicator
-  final TextStyle? textStyle; // Style for the progress text
+  final double progress; 
+  final double size; 
+  final Color backgroundColor; 
+  final Color progressColor; 
+  final TextStyle? textStyle; 
 
   const HeptagonProgressBar({
     super.key,
@@ -37,7 +37,7 @@ class HeptagonProgressBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                FontAwesomeIcons.solidHeart,  // Home icon
+                FontAwesomeIcons.solidHeart, 
                 size: 20.0,
                 color: Colors.pink,
               ),
@@ -129,8 +129,8 @@ class HeptagonProgressPainter extends CustomPainter {
     final double angle = (2 * pi) / sides;
 
     return List.generate(sides, (index) {
-      final double x = centerX + radius * cos(angle * index + pi / 2); // Modified line
-      final double y = centerY + radius * sin(angle * index + pi / 2); // Modified line
+      final double x = centerX + radius * cos(angle * index + pi / 2); 
+      final double y = centerY + radius * sin(angle * index + pi / 2); 
       return Offset(x, y);
     });
   }

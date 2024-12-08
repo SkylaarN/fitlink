@@ -61,7 +61,7 @@ class PlanPage extends StatelessWidget {
                 SizedBox(height: 20,),
                 Heading(headingText: "Stretching", headingSize: 20),
                 SizedBox(
-                  height: 200, // Specify height for the horizontal ListView
+                  height: 200, 
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: const [
@@ -73,7 +73,7 @@ class PlanPage extends StatelessWidget {
                 SizedBox(height: 20,),
                 Heading(headingText: "Lifting weights", headingSize: 20),
                 SizedBox(
-                  height: 200, // Specify height for the horizontal ListView
+                  height: 200, 
                   child: ListView(
                     scrollDirection: Axis.horizontal,
                     children: const [

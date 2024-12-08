@@ -4,8 +4,8 @@ class CircleProgressBar extends StatelessWidget {
   final double heightWidth;
   final String label;
   final double value;
-  final IconData icon; // Icon to display in the center
-  final VoidCallback? onTap; // Callback for tap events
+  final IconData icon; 
+  final VoidCallback? onTap; 
   final int noSteps;
 
   const CircleProgressBar({
@@ -14,13 +14,13 @@ class CircleProgressBar extends StatelessWidget {
     required this.label,
     required this.value,
     required this.icon,
-    this.onTap, required this.noSteps, // Optional callback
+    this.onTap, required this.noSteps, 
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap, // Trigger the callback on tap
+      onTap: onTap, 
       child: Container(
         height: 60,
         width: 180,
@@ -59,7 +59,6 @@ class CircleProgressBar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    // I want this noSteps(int) to be a String now, getting a type cast error
                     noSteps.toString(),
                     style: TextStyle(
                       fontSize: 18,
